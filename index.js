@@ -9,6 +9,9 @@ function updateScore(team, points) {
         guestScore += points;
         document.getElementById("guest-score").textContent = guestScore;
     }
+
+    // Trigger basketball animation
+    animateBasketball();
 }
 
 function resetScores() {
@@ -16,4 +19,14 @@ function resetScores() {
     guestScore = 0;
     document.getElementById("home-score").textContent = homeScore;
     document.getElementById("guest-score").textContent = guestScore;
+}
+
+function animateBasketball() {
+    let ball = document.getElementById("basketball");
+    ball.classList.add("shoot");
+
+    // Remove animation class after it completes
+    setTimeout(() => {
+        ball.classList.remove("shoot");
+    }, 1000);
 }
