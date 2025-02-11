@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <img src="basketball.png" alt="Basketball" class="basketball" id="basketball">
+    
     <div class="scoreboard">
-        <div class="team">
+        <div class="team" id="home">
             <h3>HOME</h3>
             <div class="score" id="home-score">0</div>
             <div class="buttons">
@@ -17,7 +19,12 @@
                 <button onclick="updateScore('home', 3)">+3</button>
             </div>
         </div>
-        <div class="team">
+        <div class="middle">
+            <h3>PERIOD: <span id="period">1</span></h3>
+            <h3>FOULS: <span id="fouls">0</span></h3>
+            <h3>TIMER: <span id="timer">10:00</span></h3>
+        </div>
+        <div class="team" id="guest">
             <h3>GUEST</h3>
             <div class="score" id="guest-score">0</div>
             <div class="buttons">
@@ -28,13 +35,8 @@
         </div>
     </div>
 
+    <button class="new-game" onclick="newGame()">NEW GAME</button>
     <button class="reset" onclick="resetScores()">RESET</button>
-
-    <!-- Basketball Animation Container -->
-    <!-- <div class="animation-container">
-        <img src="basketball.png" alt="Basketball" class="basketball" id="basketball">
-        <img src="hoop.png" alt="Basketball Hoop" class="hoop">
-    </div> -->
 
     <script src="index.js"></script>
 </body>
