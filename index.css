@@ -18,6 +18,12 @@ body {
     overflow: hidden;
 }
 
+h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: orangered;
+}
+
 /* Scoreboard */
 .scoreboard {
     display: flex;
@@ -139,7 +145,7 @@ button:hover {
 .basketball {
     width: 100%;
     height: 100%;
-    background: url('path/to/transparent-basketball.png') no-repeat center center;
+    /* background: url('ball.jpg') no-repeat center center; */
     background-size: contain;
 }
 
