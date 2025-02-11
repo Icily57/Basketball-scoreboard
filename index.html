@@ -7,8 +7,11 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <img src="basketball.png" alt="Basketball" class="basketball" id="basketball">
-    
+    <!-- Spinning Basketball -->
+    <div class="basketball-container">
+        <img src="basketball.png" class="basketball" alt="Spinning Basketball">
+    </div>
+
     <div class="scoreboard">
         <div class="team" id="home">
             <h3>HOME</h3>
@@ -34,10 +37,11 @@
             </div>
         </div>
     </div>
-
+    <div class="btn">
     <button class="new-game" onclick="newGame()">NEW GAME</button>
     <button class="reset" onclick="resetScores()">RESET</button>
-
+    <button class="timer-control" onclick="toggleTimer()">START / STOP TIMER</button>
+    </div>
     <script src="index.js"></script>
 </body>
 </html>

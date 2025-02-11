@@ -4,6 +4,10 @@ let period = 1;
 let fouls = 0;
 let timer;
 let timeLeft = 600; // 10 minutes in seconds
+let isTimerRunning = false;
+let rotation = 0;
+let spinning = false;
+let spinInterval;
 
 function updateScore(team, points) {
     if (team === 'home') {
@@ -22,13 +26,14 @@ function resetScores() {
     period = 1;
     fouls = 0;
     timeLeft = 600;
+    isTimerRunning = false;
     clearInterval(timer);
     updateDisplay();
 }
 
 function newGame() {
     resetScores();
-    startTimer();
+    updateDisplay();
 }
 
 function updateLeader() {
@@ -47,29 +52,22 @@ function updateLeader() {
     }
 }
 
-function updateDisplay() {
-    document.getElementById("home-score").textContent = homeScore;
-    document.getElementById("guest-score").textContent = guestScore;
-    document.getElementById("period").textContent = period;
-    document.getElementById("fouls").textContent = fouls;
-    document.getElementById("timer").textContent = formatTime(timeLeft);
+function startSpinning() {
+    if (!spinning) {
+        spinning = true;
+        spinInterval = setInterval(() => {
+            rotation += 5;
+            document.querySelector(".basketball").style.transform = `rotate(${rotation}deg)`;
+        }, 50);
+    }
 }
 
-function startTimer() {
-    clearInterval(timer);
-    timer = setInterval(() => {
-        if (timeLeft > 0) {
-            timeLeft--;
-            document.getElementById("timer").textContent = formatTime(timeLeft);
-        } else {
-            clearInterval(timer);
-            alert("End of period!");
-        }
-    }, 1000);
+function stopSpinning() {
+    spinning = false;
+    clearInterval(spinInterval);
 }
 
-function formatTime(seconds) {
-    let minutes = Math.floor(seconds / 60);
-    let secs = seconds % 60;
-    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
-}
+// Automatically start spinning on page load
+document.addEventListener("DOMContentLoaded", () => {
+    startSpinning();
+});
