@@ -1,8 +1,17 @@
+@font-face {
+    font-family: 'Coplifher';
+    src: url('Coplifher.ttf') format('truetype');
+    font-weight: bolder;
+    font-style: normal;
+    font-size: large;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
+    /* font-family: 'Bangers', sans-serif; */
+    /* font-weight: bold; */
     text-align: center;
     background: #222;
-    color: white;
+    color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
